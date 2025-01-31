@@ -1,9 +1,11 @@
 name: Obfuscate and Commit
 
 on:
-    #push:
-    #    paths:
-    #        - '明文源码.js'
+    push:
+        branches:
+            - main
+        paths:
+            - '明文源码.js'
     workflow_dispatch:
 
 jobs:
@@ -52,4 +54,5 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+          branch: obfuscate
+          force: true
